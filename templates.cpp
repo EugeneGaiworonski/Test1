@@ -1,13 +1,15 @@
+#define QT
 #include <iostream>
+#include <windows.h>
 using namespace std;
 void newLine() { cout << '\n'; }
 
 template <class TYPE>
-TYPE mAbs(TYPE a, TYPE b, TYPE &ra, TYPE &rb)
+void mAbs(TYPE a, TYPE b, TYPE &ra, TYPE &rb)
 {
     ra = a >= 0 ? a : -a;
     rb = b >= 0 ? b : -b;
-};
+}
 
 template <class TYPE>
 TYPE mAbsSum(TYPE a, TYPE b)
@@ -27,6 +29,14 @@ TYPE mSumAbs(TYPE a, TYPE b)
 
 int main()
 {
+#ifdef QT
+    SetConsoleCP(65001);
+    SetConsoleCP(65001);
+#endif
+#ifdef VC++
+    SetConsoleCP(1251);
+    SetConsoleCP(1251);
+#endif
     int iA = -5, absA = 0;
     int iB = 10, absB = 0;
     float fF = -6, absF = 0;
@@ -41,4 +51,6 @@ int main()
     cout << mSumAbs<int>(fF,iA)<<"\n";
     return 0;
 }
+
+
 
